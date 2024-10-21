@@ -333,7 +333,7 @@ def create_data_project(name):
     os.makedirs(os.path.join(path_data,name),exist_ok=True)
     os.makedirs(os.path.join(path_data,name,"dataset"),exist_ok=True)
     
-def transcribe(file_audio,language="english"):
+def transcribe(file_audio,language="indonesian"):
     global pipe
 
     if pipe is None:
@@ -631,7 +631,7 @@ with gr.Blocks() as app:
      ```""",visible=False)
 
               audio_speaker = gr.File(label="voice",type="filepath",file_count="multiple")
-              txt_lang = gr.Text(label="Language",value="english")
+              txt_lang = gr.Text(label="Language",value="indonesian")
               bt_transcribe=bt_create=gr.Button("transcribe")
               txt_info_transcribe=gr.Text(label="info",value="")
               bt_transcribe.click(fn=transcribe_all,inputs=[project_name,audio_speaker,txt_lang,ch_manual],outputs=[txt_info_transcribe])
